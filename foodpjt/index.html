@@ -46,17 +46,15 @@
             <a href="./public/logout.html"><img src="./img/logo.png" alt="Food Delivery"></a>
         </div>
         <!-- /.login-logo -->
-        <div class="card">
+        <div class="card" id="notLoggedIn">
             <div class="card-body login-card-body">
                 <div class="card-body login-card-body">
                     <p class="login-box-msg">Sign in to start your session</p>
 
-                    <form action="./public/dashboard.html" method="post">
-                        <input type="hidden" name="_token" value="eOtyydE2JO5yggLXZlkEWRIOqqN2NPWOw19ieQLN">
-
+                    <form>
                         <div class="input-group mb-3">
                             <input value="" type="email" class="form-control " name="email" placeholder="Email Address"
-                                aria-label="Email Address">
+                                aria-label="Email Address" id="email">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fa fa-envelope"></i></span>
                             </div>
@@ -64,7 +62,7 @@
 
                         <div class="input-group mb-3">
                             <input value="" type="password" class="form-control  " name="password"
-                                placeholder="Password" aria-label="Password">
+                                placeholder="Password" aria-label="Password" id="password">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
@@ -73,66 +71,38 @@
                         <div class="row mb-2">
                             <div class="col-8">
                                 <div class="checkbox icheck">
-                                    <label> <input type="checkbox" name="remember"> Remember Me
-                                    </label>
+                                    <label>  Remember Me </label>
+                                    <input type="checkbox" name="remember">
                                 </div>
                             </div>
                             <!-- /.col -->
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                                <button onclick="login()" class="btn btn-primary btn-block">Login</button>
                             </div>
                             <!-- /.col -->
                         </div>
-                        <!--<div class="row mb-2">
-                            <div class="col-12 callout callout-success">
-                                <h6 class="text-bold">Admin</h6>
-                                <p><small>User: <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                            data-cfemail="6203060f0b0c2206070f0d4c010d0f">[email&#160;protected]</a> |
-                                        Password: 123456</small></p>
-                            </div> 
-                            <!-- /.col -->
-                        <!-- </div>
-                        <div class="row mb-2">
-                            <div class="col-12 callout callout-warning">
-                                <h6 class="text-bold">Manager</h6>
-                                <p><small>User: <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                            data-cfemail="cfa2aea1aea8aabd8fabaaa2a0e1aca0a2">[email&#160;protected]</a>
-                                        | Password: 123456</small></p>
-                            </div>
-                            <!-- /.col 
-                        </div> 
-                        <div class="row mb-2">
-                            <div class="col-12 callout callout-danger">
-                                <h6 class="text-bold">Client</h6>
-                                <p><small>User: <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                            data-cfemail="5536393c303b21153130383a7b363a38">[email&#160;protected]</a> |
-                                        Password: 123456</small></p>
-                            </div>
-                            <!-- /.col 
-                        </div> -->
+
 
                     </form>
-
-                    <!--<div class="social-auth-links text-center mb-3">
-                        <p style="text-transform: uppercase">- Or -</p>
-                        <a href="https://multi-restaurants.smartersvision.com/login/facebook"
-                            class="btn btn-block btn-facebook">
-                            <i class="fa fa-facebook mr-2"></i> Sign in using Facebook
-                        </a>
-                        <a href="https://multi-restaurants.smartersvision.com/login/google"
-                            class="btn btn-block btn-google"> <i class="fa fa-google-plus mr-2"></i> Sign in using
-                            Google+
-                        </a>
-                    </div>-->
-                    <!-- /.social-auth-links -->
 
                     <p class="mb-1 text-center">
                         <a href="https://multi-restaurants.smartersvision.com/password/reset">I forgot my password</a>
                     </p>
-                    <!--<p class="mb-0 text-center">
-                        <a href="https://multi-restaurants.smartersvision.com/register" class="text-center">Register a
-                            new membership</a>
-                    </p>-->
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="card" id="loggedIn">
+            <div class="card-body login-card-body">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Welcome <span id="username">User</span></p>
+
+                    <div class="text-center">
+                        <button class="btn btn-success btn-md">Proceed to Dashboard</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -155,6 +125,33 @@
             })
         })
     </script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBJ4G9SN6mBvRj72mcgbw0lR3oaOpP15c4",
+    authDomain: "foodie-e7672.firebaseapp.com",
+    databaseURL: "https://foodie-e7672.firebaseio.com",
+    projectId: "foodie-e7672",
+    storageBucket: "foodie-e7672.appspot.com",
+    messagingSenderId: "197127339220",
+    appId: "1:197127339220:web:b9738d87654c0310cacf41",
+    measurementId: "G-MYXDWXH9KL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="./js/index.js"></script>
 </body>
 
 </html>
