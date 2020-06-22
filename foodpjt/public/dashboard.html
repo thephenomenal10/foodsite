@@ -527,9 +527,9 @@
                     labels: labels,
                     datasets: [
                         {
-                            backgroundColor: '#007bff',
+                            backgroundColor: '#000000',
                             borderColor: '#007bff',
-                            data: data
+                            data: [1000, 100, 2000, 200]
                         }
                     ]
                 },
@@ -589,6 +589,7 @@
                 success: function (result) {
                     $("#loadingMessage").html("");
                     var data = result.data[0];
+                    console.log(data);
                     var labels = result.data[1];
                     renderChart($salesChart, data, labels)
                 },

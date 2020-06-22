@@ -226,10 +226,10 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form action="" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="selectImage">Which Image?</label>
-                        <select name="selectImage" id="" class="form-control">
+                        <select name="selectImage" id="imageNumber" class="form-control">
                             <option value="image1">Image 1</option>
                             <option value="image2">Image 2</option>
                             <option value="image3">Image 3</option>
@@ -238,10 +238,10 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Select Replacement Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" id="image" accept="image/png,image/svg" class="form-control">
                     </div>
                     <div class="text-left">
-                        <button class="btn btn-success btn-md" type="submit">Update</button>
+                        <button type="button" class="btn btn-success btn-md" onclick="sliderUpdate()">Update</button>
                     </div>
                 </form>
             </div>
@@ -400,6 +400,32 @@
         })
 
     </script>
-
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+    
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBJ4G9SN6mBvRj72mcgbw0lR3oaOpP15c4",
+        authDomain: "foodie-e7672.firebaseapp.com",
+        databaseURL: "https://foodie-e7672.firebaseio.com",
+        projectId: "foodie-e7672",
+        storageBucket: "foodie-e7672.appspot.com",
+        messagingSenderId: "197127339220",
+        appId: "1:197127339220:web:b9738d87654c0310cacf41",
+        measurementId: "G-MYXDWXH9KL"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>

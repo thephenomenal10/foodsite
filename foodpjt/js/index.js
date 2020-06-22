@@ -1,4 +1,80 @@
-var db = firebase.firestore();
+const db = firebase.firestore();
+
+
+function sliderUpdate() {
+    
+    var imageNumber = document.getElementById("imageNumber").value;
+
+    var image = document.getElementById("image").files[0];
+    var imageName = image.name;
+    
+    var storageRef = firebase.storage().ref('sliderImages/' + imageName);
+    
+    var uploadTask = storageRef.put(image);
+    
+
+    uploadTask.on('state_changed', function(snapshot) {
+    var progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+
+    console.log("Upload is " + progress + "% done");
+    },function(error){
+        console.log(error.message);
+    },function(){
+        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL){
+            var url = downloadURL;
+
+            db.collection("sample").doc().set({
+                imageNumber: imageNumber,
+                image: url
+            })
+            .then(function(){
+                window.alert("Upload successful");
+            })
+            .catch(err => window.alert("Error: " + err.message));
+        });
+    });
+}
+
+
+function onboardingUpdate() {
+    var screenNumber = document.getElementById("screenNumber").value;
+    var description = document.getElementById("description").value;
+    var heading = document.getElementById("heading").value;
+    var onboardingImage = document.getElementById("onboardingImage").files[0];
+    var onboardingImageName = onboardingImage.name;
+
+    var storageRef = firebase.storage().ref('onboardingImages/' + onboardingImageName);
+    
+    var uploadTask = storageRef.put(onboardingImage);
+    
+
+    uploadTask.on('state_changed', function(snapshot) {
+    var progress = (snapshot.bytesTransferred/snapshot.totalBytes)*100;
+
+    console.log("Upload is " + progress + "% done");
+    },function(error){
+        console.log(error.message);
+    },function(){
+        uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL){
+            var url = downloadURL;
+
+            db.collection("sample").doc().set({
+                screenNumber: screenNumber,
+                description: description,
+                heading: heading,
+                onboardingImage: url
+            })
+            .then(function(){
+                window.alert("Upload successful");
+            })
+            .catch(err => window.alert("Error: " + err.message));
+        });
+    });
+}
+
+
+
+/*
 var earning = document.getElementById("earning");
 
 db.collection("earning").get().then(function(querySnapshot) {
@@ -8,7 +84,6 @@ db.collection("earning").get().then(function(querySnapshot) {
 });
 
 
-/*
 /* Auth code 
 
 var notLoggedIn = document.getElementById("notLoggedIn");

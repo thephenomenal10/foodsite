@@ -222,10 +222,10 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <form action="">
+                <form enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="selectScreen">Which Screen?</label>
-                        <select name="selectScreen" id="" class="form-control">
+                        <select name="selectScreen" id="screenNumber" class="form-control">
                             <option value="screen1">Screen 1</option>
                             <option value="screen2">Screen 2</option>
                             <option value="screen3">Screen 3</option>
@@ -233,18 +233,18 @@
                     </div>
                     <div class="form-group">
                         <label for="heading">Heading</label>
-                        <input type="text" name="heading" class="form-control" placeholder="Enter Heading..">
+                        <input type="text" name="heading" id="heading" class="form-control" placeholder="Enter Heading..">
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input type="text" name="description" class="form-control" placeholder="Enter Description..">
+                        <input type="text" name="description" id="description" class="form-control" placeholder="Enter Description..">
                     </div>
                     <div class="form-group">
                         <label for="image">Select Replacement Image</label>
-                        <input type="file" name="image" class="form-control">
+                        <input type="file" name="image" id="onboardingImage" accept="image/png,image/svg" class="form-control">
                     </div>
                     <div class="text-left">
-                        <button class="btn btn-success btn-md" type="submit">Update</button>
+                        <button type="button" class="btn btn-success btn-md" onclick="onboardingUpdate()">Update</button>
                     </div>
                 </form>
             </div>
@@ -416,6 +416,7 @@
 <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
 
 
 <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
@@ -436,6 +437,6 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
-<script src="../js/index.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>
