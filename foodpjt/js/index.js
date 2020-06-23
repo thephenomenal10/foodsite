@@ -1,6 +1,5 @@
 const db = firebase.firestore();
 
-
 function sliderUpdate() {
     
     var imageNumber = document.getElementById("imageNumber").value;
@@ -72,7 +71,25 @@ function onboardingUpdate() {
     });
 }
 
+//var db = firebase.firestore();
+var earning = document.getElementById("earning");
+var earnings = document.getElementById("earnings");
 
+db.collection("earning").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        console.log(doc.data().total_earning + "\n");
+        earning.innerHTML += "<h3>" + doc.data().total_earning + "</h3>";
+    });
+});
+
+
+db.collection("tiffen_service_details/angshumas07@gmail.com/acceptedOrders/angshumans07@gmail.comwSbDvsN92020-06-21 22:14:07.088690").get().then(function(querySnapshot) {
+ 
+      querySnapshot.forEach(function(doc) {
+          console.log(doc.data().totalCost + "\n");
+          earnings.innerHTML += "<h3>" + doc.data().totalCost + "</h3>";
+      });
+  });
 
 /*
 var earning = document.getElementById("earning");
