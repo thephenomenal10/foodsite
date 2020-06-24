@@ -10,17 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
     <!-- Ionicons -->
 
     <style>
-       table {
+table {
   border-collapse: collapse;
   width: 100%;
 }
 
-th, td {
+td,th{
   text-align: left;
   padding: 8px;
 }
@@ -28,8 +31,9 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-  background-color: #4CAF50;
+  background-color: red;
   color: white;
+  
 }
 
 .topnav {
@@ -279,22 +283,24 @@ th {
         <h1><center>Users</center></h1>
     
             
-                <table>
-                    
-                      <tr>
-                        <td>Name</td>
-                        <td>Email</td>
-                        <td>Address</td>
-                        <td>Contact</td>
+        <table >
+            <thead>
+                      <tr class="text-left">
+                        <th >Name</th>
+                        <th >Email</th>
+                        <th >Address</th>
+                        <th >Contact</th>
                       </tr>
-                      <div id="users"></div>
-                 </table>   
-            
-            <div id="susers">
+                    </thead>
+                      <tbody id="users">
 
-            </div>
+                      </tbody>
+                      <tbody id="susers">
+
+                    </tbody>
+                 </table>   
        
-    </div>
+                </div>
     
 </div>
 
