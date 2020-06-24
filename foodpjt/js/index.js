@@ -238,7 +238,24 @@ db.collection("onboarding_images").get().then(function(querySnapshot) {
         document.getElementById("addOnboardingImage").appendChild(colDiv);
     });
 });
+var totalearning = 0;
+db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").get().then(function(querySnapshot) {
 
+   querySnapshot.forEach(function(doc) {
+       totalearning += doc.data().totalCost;
+   });
+   earning.innerHTML += "<h3>" + totalearning + "</h3>";
+});
+
+
+  var total =0;
+     db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").get().then(function(querySnapshot) {
+    
+        querySnapshot.forEach(function(doc) {
+            total += doc.data().totalCost;
+        });
+        earnings.innerHTML += "<h3>" + total + "</h3>";
+    });
 
 
 // where(firebase.firestore.FieldPath.documentId(), '==', 'saibhavadeesh@gmail.com')
