@@ -18,13 +18,6 @@
 
 
 
-<!-- Morris chart -->
-
-<!-- jvectormap -->
-
-<!-- Date Picker -->
-
-<!-- Daterange picker -->
 <link rel="stylesheet" href="../css/blue.css">
  <!-- select2 -->
  <link rel="stylesheet" href="../css/select2.min.css">
@@ -82,6 +75,8 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a href="./profile.html" class="dropdown-item"> <i class="fa fa-user mr-2"></i> Profile </a>
                         <div class="dropdown-divider"></div>
+                        <a href="./profile.html" class="dropdown-item"> <i class="fa fa-user mr-2"></i> Edit Profile </a>
+                        <div class="dropdown-divider"></div>
                         <a href="./logout.html" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fa fa-envelope mr-2"></i> Logout
                         </a>
@@ -110,11 +105,7 @@
                 <li class="nav-item">
         <a class="nav-link active" href="./dashboard.html">                <i class="nav-icon fa fa-dashboard"></i>            <p>Dashboard</p></a>
     </li>
-<!--
-    <li class="nav-item">
-        <a class="nav-link " href="./favorites.html">                <i class="nav-icon fa fa-heart"></i><p>Favorites</p></a>
-    </li>
--->
+
 <li class="nav-header">App Management</li>
 
 <!-- Total Orders -->
@@ -122,13 +113,6 @@
     <a class="nav-link " href="./orders.html"> <i
             class="nav-icon fa fa-shopping-basket"></i>
         <p>Orders</p>
-    </a>
-</li>
-
-<!-- Total Earnings -->
-<li class="nav-item">
-    <a class="nav-link " href="./earnings.html"> <i class="nav-icon fa fa-money"></i>
-        <p>Total Earnings</p>
     </a>
 </li>
 
@@ -197,7 +181,7 @@
 
         <div class="content">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-header no-border">
                             <div class="d-flex justify-content-between">
@@ -220,7 +204,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-4 col-sm-12">
                     <div class="card">
                         <div class="card-header no-border">
                             <div class="d-flex justify-content-between">
@@ -244,47 +228,33 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    
-            <div class="col-md-9">
-                <div class="clearfix"></div>
-            </div>
-            <div id="mediaModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header align-items-stretch">
-                        <h5 class="modal-title flex-grow-1">Media Library</h5>
-                        <div style="width: 250px;" id="selectCollection" class="ml-auto mr-3">
-                            <select name="collection_name" id="collection_name" class="form-control select2">
-                            </select>
-                        </div>
-
-                        <div id="resizeItems" class="ml-auto btn-group">
-                            <button type="button" data-size="2" class="btn btn-outline-secondary"><i class="fa fa-th"></i></button>
-                            <button type="button" data-size="3" class="btn btn-primary"><i class="fa fa-th-large"></i></button>
-                            <button type="button" data-size="4" class="btn btn-outline-secondary"><i class="fa fa-square"></i></button>
-                        </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row medias-items">
-                            <div class="card loader">
-                                <div class="overlay">
-                                    <i class="fa fa-refresh fa-spin"></i>
-                                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="card">
+                        <div class="card-header no-border">
+                            <div class="d-flex justify-content-between">
+                                <h3 class="card-title">Earnings</h3>
+                                <a href="./earnings.html">View Total Earnings</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <span>Select file to upload it</span>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <p class="d-flex flex-column">
+                                    <div id="earnings-count"> 
+                                        <div>Earnings</div>
+                                    </div>
+                                </p>
+                            </div>
+
+                            <div class="position-relative mb-4">
+                                <canvas id="earnings-chart" height="200"></canvas>
+                            </div>
+        
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
                 </div>
             </div>
         </div>
@@ -319,20 +289,7 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js"></script>
 
 
-    <!-- Sparkline -->
-
-
-
-
-
-    <!-- jQuery Knob Chart -->
-
-    <!-- daterangepicker -->
-
-
-    <!-- datepicker -->
-
-    <!-- Bootstrap WYSIHTML5 -->
+    
 
     <!-- Slimscroll -->
     <script src="../js/jquery.min.js"></script>
@@ -344,8 +301,6 @@
     <script src="../js/adminlte.js"></script>
 
 
-    <!-- AdminLTE for demo purposes -->
-    <script src="../js/demo.js"></script>
 
     <script src="../js/scripts.js"></script>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
