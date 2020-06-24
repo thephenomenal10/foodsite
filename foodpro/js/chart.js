@@ -1,18 +1,16 @@
-const db = firebase.firestore();
-var earningchart = document.getElementById("earningchart");
+var earningchart = document.getElementById("earning-chart");
  
-var earningtotal=0
+var earningtotal=0;
 db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").get().then(function(querySnapshot){
     querySnapshot.forEach(function(doc){
         earningtotal += doc.data().totalCost;
     });
-    //earningchart.innerHTML += "<h3>" + earningtotal + "</h3>";
-    console.log(earningtotal);
+    earningchart.innerHTML += "<h3>" + earningtotal + "</h3>";
 
 
     
     var data = [earningtotal];
-    var labels = ['JUN','JULY','Aug']
+    var labels = ['JUN']
     new Chart(earningchart, {
         type: 'bar',
         data: {
@@ -44,12 +42,14 @@ db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").g
                     },
                     scaleLabel:{
                         display: true,
-                        labelString: 'Number of Vendors',
+                        labelString: 'Total Earnings',
                         fontColor: 'black',
                     },
                     ticks: {
-                        beginAtZero: true,
-                        stepSize: 5
+                        beginAtZero: false,
+                        stepSize: 1000,
+                        min: 0
+                        
                     }
                 }]
             }
@@ -57,4 +57,3 @@ db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").g
         }
     });
 });
-window.alert();
