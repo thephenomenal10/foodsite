@@ -29,6 +29,30 @@
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
 
 <style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,th{
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: red;
+  color: white;
+  
+}
+#vendors{
+    display: block;
+}
+#svendors{
+    display: none;
+}
+
     .card {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
@@ -250,30 +274,41 @@ text-align: center;
 
 <div class="topnav">
     <div class="search-container">
-        <form >
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
+        
+          <input type="text" placeholder="Search.." name="search" id="name">
+          <button type="button" onclick="getvendor()"><i class="fa fa-search"></i></button>
+        
       </div>
 </div> 
 
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-             
-
+<div class="content-wrapper">
     <div class="container-fluid ">
     <h1><center>Vendors</center></h1>
 
-        <div id="vendors">
+    <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>SubscriptionStartDate</th>
+          </tr>
+        </thead>
+          <tbody id="vendors">
 
-        </div>
+          </tbody>
+          <tbody id="svendors">
+
+        </tbody>
+     </table>   
+
    
 </div>
-</div>
-<!-- /.content-header -->
 
-    </div>
+</div>
+
+    
 
     <!-- Main Footer -->
     <footer class="main-footer 0">
