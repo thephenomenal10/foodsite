@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Food Delivery | Manage Mobile Application</title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <link rel="icon" type="image/png" href="../img/logo.png" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+    <!-- Ionicons -->
+    <link href="./css/ionicons.min.css" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/b2208ecd95.js" crossorigin="anonymous"></script>
+
+
+
+    <!-- Morris chart -->
+
+    <!-- jvectormap -->
+
+    <!-- Date Picker -->
+
+    <!-- Daterange picker -->
+
+
+
+
+    <!-- Theme style -->
+    <link rel="stylesheet" href="./css/adminlte.css">
+    <link rel="stylesheet" href="./css/sweetalert.css">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600" rel="stylesheet">
+    <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/primary.css">
+</head>
+
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="./public/logout.html"><img src="./img/logo.png" alt="Food Delivery"></a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="card" id="notLoggedIn">
+            <div class="card-body login-card-body">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Sign in to start your session</p>
+
+                    <form>
+                        <div class="input-group mb-3">
+                            <input value="" type="email" class="form-control " name="email" placeholder="Email Address"
+                                aria-label="Email Address" id="email">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input value="" type="password" class="form-control  " name="password"
+                                placeholder="Password" aria-label="Password" id="password">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-2">
+                            <div class="col-8">
+                                <div class="checkbox icheck">
+                                    <label>  Remember Me </label>
+                                    <input type="checkbox" name="remember">
+                                </div>
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-4">
+                                <button onclick="login()" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+
+
+                    </form>
+
+                    <p class="mb-1 text-center">
+                        <a href="https://multi-restaurants.smartersvision.com/password/reset">I forgot my password</a>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="card" id="loggedIn">
+            <div class="card-body login-card-body">
+                <div class="card-body login-card-body">
+                    <p class="login-box-msg">Welcome <span id="username">User</span></p>
+
+                    <div class="text-center">
+                        <button class="btn btn-success btn-md">Proceed to Dashboard</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.login-box -->
+
+    <!-- jQuery -->
+    <script data-cfasync="false" src="../js/email-decode.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <!-- iCheck -->
+    <script src="../js/icheck.min.js"></script>
+    <script>
+        $(function () {
+            $('.icheck input').iCheck({
+                checkboxClass: 'icheckbox_flat-blue',
+                radioClass: 'iradio_flat-blue',
+                increaseArea: '20%' // optional
+            })
+        })
+    </script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBJ4G9SN6mBvRj72mcgbw0lR3oaOpP15c4",
+    authDomain: "foodie-e7672.firebaseapp.com",
+    databaseURL: "https://foodie-e7672.firebaseio.com",
+    projectId: "foodie-e7672",
+    storageBucket: "foodie-e7672.appspot.com",
+    messagingSenderId: "197127339220",
+    appId: "1:197127339220:web:b9738d87654c0310cacf41",
+    measurementId: "G-MYXDWXH9KL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="./js/index.js"></script>
+</body>
+
+</html>
