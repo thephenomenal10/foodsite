@@ -116,14 +116,6 @@
                                 <p>All Orders</p>
                             </a>
                         </li>
-
-                        <!-- Total Earnings 
-                        <li class="nav-item">
-                            <a class="nav-link " href="./earnings.html"> <i class="nav-icon fa fa-money"></i>
-                                <p>Total Earnings</p>
-                            </a>
-                        </li>-->
-
                         <!-- Total Vendors -->
                         <li class="nav-item">
                             <a class="nav-link " href="./restaurants.html"> <i
@@ -190,8 +182,10 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>53</h3>
+                                <!--<h3>53</h3>-->
+                                <div id="totalorders">
 
+                                </div>
                                 <p>Total Orders</p>
                             </div>
                             <div class="icon">
@@ -224,7 +218,10 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>7</h3>
+                                <!--<h3></h3>-->
+                                <div id="totalvendors">
+
+                                </div>
                                 <p>Total Vendors</p>
                             </div>
                             <div class="icon">
@@ -239,7 +236,10 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>47</h3>
+                                <!--<h3>47</h3>-->
+                                <div id="totalusers">
+
+                                </div>
 
                                 <p>Total Users</p>
                             </div>
@@ -277,14 +277,15 @@
                                    
                                     </p>
                                     <p class="ml-auto d-flex flex-column text-right">
-                                        <span class="text-success"> 53</span></span> <span class="text-muted">Total
+                                        <!--<span class="text-success"> </span>--> 
+                                        <span class="text-muted" id="totalvendor">Total
                                             Vendors</span>
                                     </p>
                                 </div>
                                 <!-- /.d-flex -->
 
                                 <div class="position-relative mb-4">
-                                    <canvas id="earningchart" height="200"></canvas>
+                                    <canvas id="earning-chart" height="200"></canvas>
                                 </div>
 
                                 <div class="d-flex flex-row justify-content-end">
@@ -414,92 +415,6 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script type="text/javascript">
-        const messaging = firebase.messaging();
-        navigator.serviceWorker.register("https://multi-restaurants.smartersvision.com/firebase/sw-js")
-            .then((registration) => {
-                messaging.useServiceWorker(registration);
-                messaging.requestPermission()
-                    .then(function () {
-                        console.log('Notification permission granted.');
-                        getRegToken();
-
-                    })
-                    .catch(function (err) {
-                        console.log('Unable to get permission to notify.', err);
-                    });
-                messaging.onMessage(function (payload) {
-                    console.log("Message received. ", payload);
-                    notificationTitle = payload.data.title;
-                    notificationOptions = {
-                        body: payload.data.body,
-                        icon: payload.data.icon,
-                        image: payload.data.image
-                    };
-                    var notification = new Notification(notificationTitle, notificationOptions);
-                });
-            });
-
-        function getRegToken(argument) {
-            messaging.getToken().then(function (currentToken) {
-                if (currentToken) {
-                    saveToken(currentToken);
-                    console.log(currentToken);
-                } else {
-                    console.log('No Instance ID token available. Request permission to generate one.');
-                }
-            })
-                .catch(function (err) {
-                    console.log('An error occurred while retrieving token. ', err);
-                });
-        }
-
-
-        function saveToken(currentToken) {
-            $.ajax({
-                type: "POST",
-                data: { 'device_token': currentToken, 'api_token': 'PivvPlsQWxPl1bB5KrbKNBuraJit0PrUZekQUgtLyTRuyBq921atFtoR1HuA' },
-                url: 'https://multi-restaurants.smartersvision.com/api/users/1',
-                success: function (data) {
-
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-    </script>
-
-    <!-- Sparkline -->
-
-
-
-
-
-    <!-- jQuery Knob Chart -->
-
-    <!-- daterangepicker -->
-
-
-    <!-- datepicker -->
-
     <!-- Bootstrap WYSIHTML5 -->
 
     
@@ -548,7 +463,7 @@
   firebase.analytics();
 </script>
 <script src="../js/index.js"></script>
-<script type="text/javascript" src="../js/Chart.js"></script>
+<script type="text/javascript" src="../js/chart.js"></script>
 </body>
 
 </html>
