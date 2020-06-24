@@ -31,8 +31,8 @@ function getuser(){
     querySnapshot.forEach(function(doc) {
       document.getElementById("susers").style.display = "block";
       if(doc.data().name===user){
-        susersList.innerHTML += "<tbody class='table'><tr><td>"+doc.data().name+"</td><td>"+doc.data().email+"</td><td>Address : "+doc.data().address+
-        "</td><td>Contact Number : "+doc.data().phone+"</td></tr></tbdody>"
+        susersList.innerHTML += "<tr><td>"+doc.data().name+"</td><td>"+doc.data().email+"</td><td>"+doc.data().address+
+        "</td><td>"+doc.data().phone+"</td></tr>"
       }
     });
 });
@@ -43,12 +43,9 @@ document.getElementById("susers").style.display = "none";
 document.getElementById("users").style.display = "block";
 db.collection('customer_collection').get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
-      usersList.innerHTML += "<tr>"
-      usersList.innerHTML +="<td>"+doc.data().name+"</td>"
-      usersList.innerHTML +="<td>"+doc.data().email+"</td>"
-      usersList.innerHTML +="<td>"+doc.data().address+"</td>"
-      usersList.innerHTML +="<td>"+doc.data().phone+"</td>"
-      usersList.innerHTML +="</tr>"
+      usersList.innerHTML += "<tr><td>"+doc.data().name+"</td><td>"+doc.data().email+"</td><td>"+doc.data().address+
+        "</td><td>"+doc.data().phone+"</td></tr>"
+      
     });
   
 });
@@ -70,33 +67,28 @@ function getvendor(){
   document.getElementById("svendors").style.display = "block";
   var user=document.getElementById("name").value;
   var svendorsList = document.getElementById("svendors");
-  db.collection('vendor_collection/vendors/registered_vendors/')
+  db.collection('tiffen_service_details')
   .get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
       if(doc.data().Name===user){
-        svendorsList.innerHTML +=  "<div class='card'><p>Name : "+doc.data().Name+"</p><p>Email : "
-      +doc.data().Email+"</p><p>Contact Number : "
-      +doc.data().Phone+"</p></div>"
+        svendorsList.innerHTML +=  "<tr><td>"+doc.data().OwnerName+"</td><td>"+doc.data().Email+"</td><td>"+doc.data().Phone+
+        "</td><td>"+doc.data().Address+
+        "</td><td>"+doc.data().SubscriptionStartDate+
+        "</td></tr>"
       }
     });
 });
-//document.getElementById("users").style.display = "block";
 }
-
-
 var vendorsList = document.getElementById("vendors");
 document.getElementById("svendors").style.display = "none";
 document.getElementById("vendors").style.display = "block";
-db.collection('vendor_collection/vendors/registered_vendors/').get().then(function(querySnapshot) {
+db.collection('tiffen_service_details').get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
-      //console.log(doc.data());
-      //var addr=getaddr(doc.data().Email)
-      //console.log(addr);
-      vendorsList.innerHTML +=  "<div class='card'><p>Name : "+doc.data().Name+"</p><p>Email : "
-      +doc.data().Email+"</p><p>Contact Number : "
-      +doc.data().Phone+"</p></div>"
+      vendorsList.innerHTML +=   "<tr><td>"+doc.data().OwnerName+"</td><td>"+doc.data().Email+"</td><td>"+doc.data().Phone+
+      "</td><td>"+doc.data().Address+
+      "</td><td>"+doc.data().SubscriptionStartDate+
+      "</td></tr>"
     });
-    //console.log("completed");
 });
 
 
