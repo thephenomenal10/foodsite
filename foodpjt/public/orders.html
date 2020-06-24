@@ -16,16 +16,6 @@
 
     <script src="https://kit.fontawesome.com/b2208ecd95.js" crossorigin="anonymous"></script>
 
-
-
-<!-- Morris chart -->
-
-<!-- jvectormap -->
-
-<!-- Date Picker -->
-
-<!-- Daterange picker -->
-
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
 
 
@@ -115,12 +105,6 @@
         </a>
     </li>
 
-    <!-- Total Earnings -->
-    <!--<li class="nav-item">
-        <a class="nav-link " href="./earnings.html"> <i class="nav-icon fa fa-money"></i>
-            <p>Total Earnings</p>
-        </a>
-    </li> -->
 
     <!-- Total Vendors -->
     <li class="nav-item">
@@ -199,94 +183,14 @@
 </div>
 
 
-    <!-- jQuery -->
-    <script src="../js/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    
-    
     
     <!-- Bootstrap 4 -->
     <script src="../js/bootstrap.bundle.min.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js"></script>
-
-
-
-    <script type="text/javascript">
-        const messaging = firebase.messaging();
-        navigator.serviceWorker.register("https://multi-restaurants.smartersvision.com/firebase/sw-js")
-            .then((registration) => {
-                messaging.useServiceWorker(registration);
-                messaging.requestPermission()
-                    .then(function() {
-                        console.log('Notification permission granted.');
-                        getRegToken();
-
-                    })
-                    .catch(function(err) {
-                        console.log('Unable to get permission to notify.', err);
-                    });
-                messaging.onMessage(function(payload) {
-                    console.log("Message received. ", payload);
-                    notificationTitle = payload.data.title;
-                    notificationOptions = {
-                        body: payload.data.body,
-                        icon: payload.data.icon,
-                        image:  payload.data.image
-                    };
-                    var notification = new Notification(notificationTitle,notificationOptions);
-                });
-            });
-
-        function getRegToken(argument) {
-            messaging.getToken().then(function(currentToken) {
-                if (currentToken) {
-                    saveToken(currentToken);
-                    console.log(currentToken);
-                } else {
-                    console.log('No Instance ID token available. Request permission to generate one.');
-                }
-            })
-                .catch(function(err) {
-                    console.log('An error occurred while retrieving token. ', err);
-                });
-        }
-
-
-        function saveToken(currentToken) {
-            $.ajax({
-                type: "POST",
-                data: {'device_token': currentToken, 'api_token': 'PivvPlsQWxPl1bB5KrbKNBuraJit0PrUZekQUgtLyTRuyBq921atFtoR1HuA'},
-                url: 'https://multi-restaurants.smartersvision.com/api/users/1',
-                success: function (data) {
-
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-    </script>
-
-    <!-- Sparkline -->
+  
     
     
     
-    
-    
-    <!-- jQuery Knob Chart -->
-    
-    <!-- daterangepicker -->
-    
-    
-    <!-- datepicker -->
-    
-    <!-- Bootstrap WYSIHTML5 -->
     
     <!-- Slimscroll -->
     <script src="../js/jquery.min.js"></script>
@@ -297,102 +201,8 @@
     <!-- AdminLTE App -->
     <script src="../js/adminlte.js"></script>
     
-    
-    <!-- AdminLTE for demo purposes -->
-    <script src="../js/demo.js"></script>
 
     <script src="../js/scripts.js"></script>
-        <script type="text/javascript">
-        var data = [1000, 2000, 3000, 2500, 2700, 2500, 3000];
-        var labels = ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-
-        function renderChart(chartNode, data, labels) {
-            var ticksStyle = {
-                fontColor: '#495057',
-                fontStyle: 'bold'
-            };
-
-            var mode = 'index';
-            var intersect = true;
-            return new Chart(chartNode, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [
-                        {
-                            backgroundColor: '#007bff',
-                            borderColor: '#007bff',
-                            data: data
-                        }
-                    ]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    tooltips: {
-                        mode: mode,
-                        intersect: intersect
-                    },
-                    hover: {
-                        mode: mode,
-                        intersect: intersect
-                    },
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        yAxes: [{
-                            // display: false,
-                            gridLines: {
-                                display: true,
-                                lineWidth: '4px',
-                                color: 'rgba(0, 0, 0, .2)',
-                                zeroLineColor: 'transparent'
-                            },
-                            ticks: $.extend({
-                                beginAtZero: true,
-
-                                // Include a dollar sign in the ticks
-                                callback: function (value, index, values) {
-                                    if (value >= 1000) {
-                                        value /= 1000
-                                        value += 'k'
-                                    }
-                                    return '$' + value
-                                }
-                            }, ticksStyle)
-                        }],
-                        xAxes: [{
-                            display: true,
-                            gridLines: {
-                                display: false
-                            },
-                            ticks: ticksStyle
-                        }]
-                    }
-                }
-            })
-        }
-
-        $(function () {
-            'use strict'
-
-            var $salesChart = $('#sales-chart')
-            $.ajax({
-                url: "https://multi-restaurants.smartersvision.com/api/payments/byMonth?api_token=PivvPlsQWxPl1bB5KrbKNBuraJit0PrUZekQUgtLyTRuyBq921atFtoR1HuA",
-                success: function (result) {
-                    $("#loadingMessage").html("");
-                    var data = result.data[0];
-                    var labels = result.data[1];
-                    renderChart($salesChart, data, labels)
-                },
-                error: function (err) {
-                    $("#loadingMessage").html("Error");
-                }
-            });
-            //var salesChart = renderChart($salesChart, data, labels);
-        })
-
-    </script>
-
+      
 </body>
 </html>

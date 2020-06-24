@@ -10,124 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  </head>
+
     <!-- Ionicons -->
 
-    <style>
-/*table {
-  border-collapse: collapse;
-  width: 100%;
-}
 
-td,th{
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color:grey}
-
-th {
-  background-color: red;
-  color: white;
-  
-}*/
-
-.topnav {
-  overflow: hidden;
-  background-color: #e9e9e9;
-}
-
-.topnav .button {
-  float: center;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-#users{
-    display: block;
-}
-#susers{
-    display: none;
-}
-#back{
-    display: none;
-}
-
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-
-
-.topnav .search-container {
-  float: right;
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav .search-container {
-    float: none;
-  }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
-  }
-}
-
-
-    </style>
     <script src="https://kit.fontawesome.com/b2208ecd95.js" crossorigin="anonymous"></script>
 
 
 
-<!-- Morris chart -->
-
-<!-- jvectormap -->
-
-<!-- Date Picker -->
-
-<!-- Daterange picker -->
-
-
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <!-- Theme style -->
@@ -156,6 +47,7 @@ th {
                     <!-- TO DO... -->
                 </li>
             </ul>
+
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                                                     <li class="nav-item">
@@ -219,18 +111,11 @@ th {
     </a>
 </li>
 
-<!-- Total Earnings -->
-<!--<li class="nav-item">
-    <a class="nav-link " href="./earnings.html"> <i class="nav-icon fa fa-money"></i>
-        <p>Total Earnings</p>
-    </a>
-</li>-->
-
 <!-- Total Vendors -->
 <li class="nav-item">
     <a class="nav-link " href="./restaurants.html"> <i
             class="nav-icon fa fa-cutlery"></i>
-        <p>Vendors</p>
+        <p>Total Vendors</p>
     </a>
 </li>
 
@@ -267,93 +152,31 @@ th {
 <!--  ....................................From here.   main area start................ -->
 
 
-
-    <!-- Content Wrapper. Contains page content--> 
-    <div class="topnav">
-        <div class="search-container">
-            <button type="button" onclick="getu()" id="back">Back</button>
-            <input type="text" placeholder="Search.." name="search" id="uname">
-              <button type="button" onclick="getuser()"><i class="fa fa-search"></i></button>
-            
-          </div>
-   </div> 
-
+    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!--<div class="container-fluid ">
-        <h1><center>Users</center></h1>
-    
-            
-        <table >
-            <thead>
-                      <tr >
-                        <th class="text-center">Name</th>
-                        <th >Email</th>
-                        <th >Address</th>
-                        <th >Contact</th>
-                      </tr>
-                    </thead>
-                      <tbody id="users">
 
-                      </tbody>
-                      <tbody id="susers">
+        <!-- Content Header (Page header) -->
+        <div class="content-header content-header0">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Settings <small>Settings Management</small></h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="https://multi-restaurants.smartersvision.com"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                            <li class="breadcrumb-item active">Users List</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
 
-                    </tbody>
-                 </table>   
-       
-                </div>-->
+        
+                </div>
 
-
-                
-                <div class="card">
-                    <div class="card-header no-border">
-                        <h2 class="card-title"><center>Users</center></h2>
-                    </div>
-                    <div class="card-body p-0">
-                    
-                        <table class="table table-striped table-valign-middle">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th >Email</th>
-                                    <th >Address</th>
-                                    <th >Contact</th>
-                                    <th >Action</th>
-                                </tr>
-                            </thead>
-                            <tbody id="users">
-
-                            </tbody>
-                            <tbody id="susers">
-      
-                          </tbody>
-                       </table> 
-
-                       <div id="sliderModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-                      
-                          <div class="modal-content">
-                            <div class="modal-body">
-                                <form action="" enctype="multipart/form-data">
-                                    <div class="text-left">
-                                        <button type="button" class="btn btn-success btn-md" onclick="Suspend()">Suspend</button>
-                                        </div>
-                                        <div class="text-right">
-                                        <button type="button" class="btn btn-success btn-md" onclick="Activate()">Activate</button>
-                                        </div>
-                                </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                          </div>
-                      
-                        </div>
-                      </div>
-
-</div>
-
-<!-- Main Footer -->
+                <!-- Main Footer -->
                 <footer class="main-footer 0">
                     <div class="float-right d-none d-sm-block">
                         <b>Version</b> 2.1.1
@@ -365,271 +188,16 @@ th {
 
 
 
-    <!-- jQuery -->
-    <script src="../js/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-
-
-
     <!-- Bootstrap 4 -->
     <script src="../js/bootstrap.bundle.min.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
-
-    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js"></script>
-
-
+    
           <!-- Slimscroll -->
           <script src="../css/jquery.slimscroll.min.js"></script>
           <script src="../css/sweetalert.min.js"></script>
           <!-- FastClick -->
 
-          <!-- Datatables -->
 
-
-      <!-- DataTables -->
-      <script type="text/javascript" src="https://multi-restaurants.smartersvision.com/plugins/datatables/jquery.dataTables.js"></script>
-      <script type="text/javascript" src="https://multi-restaurants.smartersvision.com/plugins/datatables/dataTables.bootstrap4.js"></script>
-      <script type="text/javascript" src="https://multi-restaurants.smartersvision.com/plugins/datatables/buttons/dataTables.buttons.min.js"></script>
-      <script type="text/javascript" src="https://multi-restaurants.smartersvision.com/plugins/datatables/buttons.js"></script>
-      <script type="text/javascript" src="https://multi-restaurants.smartersvision.com/plugins/datatables/buttons/buttons.colVis.min.js"></script>
-      <script type="text/javascript" src="https://multi-restaurants.smartersvision.com/plugins/datatables/buttons.server-side.js"></script>
-      <script type="text/javascript" src="https://cdn.datatables.net/colreorder/1.5.0/js/dataTables.colReorder.js"></script>
-      <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.js"></script>
-      <script type="text/javascript" src="https://cdn.datatables.net/rowgroup/1.0.3/js/dataTables.rowGroup.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <script type="text/javascript">
-          function initICheck(){
-              $('input[type="checkbox"].permission').on('ifCreated', function (event) {
-                  var checkbox = $(this);
-                  var roleName = $(this).data('role-name');
-                  var permission = $(this).data('permission');
-                  if (permission.roles.indexOf(roleName) > -1) {
-                      checkbox.iCheck('check');
-                  }
-              });
-
-              $('.icheck input').iCheck({
-                  checkboxClass: 'icheckbox_flat-blue',
-                  radioClass: 'iradio_flat-blue',
-                  increaseArea: '20%' // optional
-              });
-
-
-              $('input[type="checkbox"].permission').on('ifClicked', function (event) {
-                  var url = "";
-                  var roleId = $(this).data('role-id');
-                  var permission = $(this).data('permission');
-                  if ($(this).parent('[class*="icheckbox"]').hasClass("checked")) {
-                      url = "https://multi-restaurants.smartersvision.com/permissions/revoke-permission-to-role";
-                  } else {
-                      url = "https://multi-restaurants.smartersvision.com/permissions/give-permission-to-role";
-                  }
-                  $.ajax({
-                      method: "POST",
-                      url: url,
-                      data: {_token: "NnO8PaWvLhFbMBofoN7lu7XzqR14STeo28Fj1Z9u", roleId: roleId, permission: permission.permission}
-                  })
-                      .done(function (msg) {
-
-                      });
-
-              });
-          }
-
-          function initColVis(_this,column){
-              if(column.visible()){
-                  _this.addClass('text-bold');
-                  _this.find('i.fa').removeClass('text-light');
-              }else{
-                  _this.removeClass('text-bold');
-                  _this.find('i.fa').addClass('text-light');
-              }
-          }
-
-          function renderButtons(tableId) {
-
-              var dtable = $("#" + tableId).DataTable();
-              $('a#refreshDatatable').on('click', function () {
-                  dtable.button('4').trigger();
-              });
-              $('a#exportCsvDatatable').on('click', function () {
-                  dtable.button('1-0').trigger();
-              });
-              $('a#exportExcelDatatable').on('click', function () {
-                  dtable.button('1-1').trigger();
-              });
-
-              $('a#exportPdfDatatable').on('click', function () {
-                  dtable.button('1-2').trigger();
-              });
-              $('a#printDatatable').on('click', function () {
-                  dtable.button('2').trigger();
-                  //window.open(window.location.href);
-              });
-              $('a#resetDatatable').on('click', function () {
-                  dtable.button('3').trigger();
-                  $('.dataTables_filter input').val('');
-              });
-              $('li#colVisDatatable').on('hide.bs.dropdown', function (e) {
-                  var target = $(e.target);
-                  if(target.hasClass("keepopen") || target.parents(".keepopen").length){
-                      return false; // returning false should stop the dropdown from hiding.
-                  }else{
-                      return true;
-                  }
-              }).find('.dropdown-toggle').on('click',function (e) {
-                  var target = $(e.target);
-                  target.parents('li#colVisDatatable').removeClass("keepopen");
-              });
-              $('li#colVisDatatable .dropdown-item').on('click', function (e) {
-                  e.preventDefault();
-                  var target = $(e.target);
-                  target.parents('li#colVisDatatable').addClass("keepopen");
-                  // Get the column API object
-                  var column = dtable.column( $(this).data('column') );
-                  // Toggle the visibility
-                  column.visible( ! column.visible() );
-                  initColVis($(this),column);
-              });
-
-              $('li#colVisDatatable .dropdown-item').each(function (e) {
-                  // Get the column API object
-                  var column = dtable.column( $(this).data('column') );
-                  initColVis($(this),column);
-              });
-
-              $("#" + tableId + "_filter").html("<div class=\"input-group input-group-sm\">\n" +
-                  "  <input type=\"text\" value=\"" + dtable.state().search.search + "\" class=\"form-control\" placeholder=\"Search\" aria-label=\"Search\">\n" +
-                  "  <div class=\"input-group-append\">\n" +
-                  "    <span class=\"input-group-text\"><i class=\"fa fa-search\"></i></span>\n" +
-                  "  </div>\n" +
-                  "</div>");
-              $("#" + tableId + "_filter input").on('keyup', function () {
-                  dtable.search(this.value).draw();
-              });
-
-              $('[data-toggle=tooltip]').tooltip();
-          }
-
-          function renderiCheck(tableId){
-              initICheck();
-
-              $("#" + tableId).on( 'draw.dt', function () {
-                  initICheck();
-              } );
-          }
-          $(document).ready(function() { $.fn.dataTableExt.sErrMode = 'none'; });
-
-
-      </script>
-      <script type="text/javascript">(function(window,$){window.LaravelDataTables=window.LaravelDataTables||{};window.LaravelDataTables["dataTableBuilder"]=$("#dataTableBuilder").DataTable({"serverSide":true,"processing":true,"ajax":{"url":"https:\/\/multi-restaurants.smartersvision.com\/users","type":"GET","data":function(data) {
-                  for (var i = 0, len = data.columns.length; i < len; i++) {
-                      if (!data.columns[i].search.value) delete data.columns[i].search;
-                      if (data.columns[i].searchable === true) delete data.columns[i].searchable;
-                      if (data.columns[i].orderable === true) delete data.columns[i].orderable;
-                      if (data.columns[i].data === data.columns[i].name) delete data.columns[i].name;
-                  }
-                  delete data.search.regex;}},"columns":[{"name":"avatar","data":"avatar","title":"Avatar","orderable":false,"searchable":false},{"name":"name","data":"name","title":"Name","orderable":true,"searchable":true},{"name":"email","data":"email","title":"Email","orderable":true,"searchable":true},{"name":"role","data":"role","title":"Role","orderable":false,"searchable":false},{"name":"updated_at","data":"updated_at","title":"Updated At","searchable":false,"orderable":true},{"defaultContent":"","data":"action","name":"action","title":"Action","render":null,"orderable":false,"searchable":false,"width":"80px","responsivePriority":"100"}],"dom":"<\".row\"<\".col-lg-4 col-xs-12\"l><\".ml-auto\"f>>rtip","order":[[0,"desc"]],"buttons":["create","export","print","reset","reload","colvis"],"colReorder":true,"responsive":true,"stateSave":true,"initComplete":function(settings){renderButtons( settings.sTableId)},"language":{"sProcessing":"Procesando...","sLengthMenu":"Mostrar _MENU_ registros","sZeroRecords":"No se encontraron resultados","sEmptyTable":"Ning\u00fan dato disponible en esta tabla","sInfo":"Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros","sInfoEmpty":"Mostrando registros del 0 al 0 de un total de 0 registros","sInfoFiltered":"(filtrado de un total de _MAX_ registros)","sInfoPostFix":"","sSearch":"Buscar:","sUrl":"","sInfoThousands":",","sLoadingRecords":"Cargando...","oPaginate":{"sFirst":"Primero","sLast":"\u00daltimo","sNext":"Siguiente","sPrevious":"Anterior"},"oAria":{"sSortAscending":": Activar para ordenar la columna de manera ascendente","sSortDescending":": Activar para ordenar la columna de manera descendente"}}});})(window,jQuery);
-      </script>
-
-          <!-- AdminLTE App -->
-          <script src="https://multi-restaurants.smartersvision.com/dist/js/adminlte.js"></script>
-
-
-          <!-- AdminLTE for demo purposes -->
-          <script src="https://multi-restaurants.smartersvision.com/dist/js/demo.js"></script>
-
-          <script src="https://multi-restaurants.smartersvision.com/js/scripts.js"></script>
-              <script type="text/javascript">
-              /**
-               * load media when select collection changed
-               */
-              var params = [];
-              var objParams = {};
-
-              /**
-               * initialise objParams with existing parameters in the url
-               * @type  {string}
-               */
-
-
-                  objParams = $.extend({}, params);
-                  objParams = $.param(objParams);
-
-              $('#filter #selectFilter').on('select2:select', function (e) {
-                  $(e.params.data.element).parent('optgroup').children().each(function (element) {
-                      $(this)[0].selected = false;
-                  });
-                  $(e.params.data.element)[0].selected = true;
-
-                  $(this).trigger('change');
-                  params[$(e.params.data.element).data('key')] = $(e.params.data.element).attr('value');
-                  objParams = $.extend({}, params);
-                  objParams = $.param(objParams);
-              });
-
-              $('#filter #selectFilter').on('select2:unselect', function (e) {
-                  params[$(e.params.data.element).data('key')] = undefined;
-                  objParams = $.extend({}, params);
-                  objParams = $.param(objParams);
-              });
-
-              $('#filter #selectFilter').on("select2:closing", function (e) {
-                  window.location.href = window.location.href.split('?')[0] + "?" + objParams;
-              });
-
-              /**
-               * initialize collections filter
-               * by default it select default collection
-               **/
-// initFilterSelect2();
-      </script>
-
-<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
-
-
-<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
-
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyBJ4G9SN6mBvRj72mcgbw0lR3oaOpP15c4",
-    authDomain: "foodie-e7672.firebaseapp.com",
-    databaseURL: "https://foodie-e7672.firebaseio.com",
-    projectId: "foodie-e7672",
-    storageBucket: "foodie-e7672.appspot.com",
-    messagingSenderId: "197127339220",
-    appId: "1:197127339220:web:b9738d87654c0310cacf41",
-    measurementId: "G-MYXDWXH9KL"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-</script>
-<script src="../js/user.js"></script>
       
 </body>
 </html>
