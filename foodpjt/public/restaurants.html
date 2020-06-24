@@ -29,19 +29,32 @@
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
 
 <style>
+/*table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+tr>th{
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: red;
+  color: white;
+  
+}*/
 #vendors{
     display: block;
 }
+
 #svendors{
     display: none;
 }
-
-    .card {
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-max-width: 300px;
-margin: auto;
-text-align: center;
+#back{
+    display: none;
 }
 
 .topnav {
@@ -258,7 +271,7 @@ text-align: center;
 
 <div class="topnav">
     <div class="search-container">
-        
+        <button type="button" onclick="getu()" id="back">Back</button>
           <input type="text" placeholder="Search.." name="search" id="name">
           <button type="button" onclick="getvendor()"><i class="fa fa-search"></i></button>
         
@@ -266,17 +279,78 @@ text-align: center;
 </div> 
 
 <div class="content-wrapper">
-    <div class="container-fluid ">
+    <!--<div class="container-fluid ">
     <h1><center>Vendors</center></h1>
 
-        <div id="vendors">
+    <table>
+        <thead>
+          <tr>
+            <th class="text-center">Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Address</th>
+            <th>SubscriptionStartDate</th>
+          </tr>
+        </thead>
+          <tbody id="vendors">
 
-        </div>
-        <div id="svendors">
+          </tbody>
+          <tbody id="svendors">
 
-        </div>
+        </tbody>
+     </table>   
+
    
-</div>
+</div>-->
+
+<div class="card">
+    <div class="card-header no-border">
+        <h2 class="card-title"><center>Tiffin Centers</center></h2>
+    </div>
+    <div class="card-body p-0">
+    
+        <table class="table table-striped table-valign-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th >Email</th>
+                    <th >Contact</th>
+                    <th >Address</th>
+                    <th>SubscriptionStartDate</th>
+                    <th >Action</th>
+                </tr>
+            </thead>
+            <tbody id="vendors">
+
+            </tbody>
+            <tbody id="svendors">
+
+          </tbody>
+       </table> 
+
+       <div id="sliderModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <div class="modal-content">
+            <div class="modal-body">
+                <form action="" enctype="multipart/form-data">
+                    <div class="text-left">
+                        <button type="button" class="btn btn-success btn-md" onclick="Suspend()">Suspend</button>
+                        </div>
+                        <div class="text-right">
+                        <button type="button" class="btn btn-success btn-md" onclick="Activate()">Activate</button>
+                        </div>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+
 
 </div>
 
@@ -515,7 +589,7 @@ text-align: center;
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
-<script src="../js/index.js"></script>
+<script src="../js/vendors.js"></script>
 
 </body>
 </html>
