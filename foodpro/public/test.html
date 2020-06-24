@@ -18,6 +18,13 @@
 
 
 
+<!-- Morris chart -->
+
+<!-- jvectormap -->
+
+<!-- Date Picker -->
+
+<!-- Daterange picker -->
 
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
 
@@ -26,9 +33,9 @@
 <!-- Theme style -->
     <link rel="stylesheet" href="../css/adminlte.css">
     <link rel="stylesheet" href="../css/sweetalert.css">
-    
-    
-    
+
+
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="../css/custom.css">
     <link rel="stylesheet" href="../css/primary.css">
@@ -45,7 +52,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="./dashboard.html" class="nav-link">Dashboard</a> 
+                    <a href="./dashboard.html" class="nav-link">Dashboard</a>
                     <!-- TO DO... -->
                 </li>
             </ul>
@@ -98,50 +105,50 @@
         <a class="nav-link active" href="./dashboard.html">                <i class="nav-icon fa fa-dashboard"></i>            <p>Dashboard</p></a>
     </li>
 
+
 <li class="nav-header">App Management</li>
+<!-- Total Orders -->
+<li class="nav-item">
+    <a class="nav-link " href="./orders.html"> <i
+            class="nav-icon fa fa-shopping-basket"></i>
+        <p>All Orders</p>
+    </a>
+</li>
 
-    <!-- Total Orders -->
-    <li class="nav-item">
-        <a class="nav-link " href="./orders.html"> <i
-                class="nav-icon fa fa-shopping-basket"></i>
-            <p>All Orders</p>
-        </a>
-    </li>
+<!-- Total Vendors -->
+<li class="nav-item">
+    <a class="nav-link " href="./restaurants.html"> <i
+            class="nav-icon fa fa-cutlery"></i>
+        <p>Total Vendors</p>
+    </a>
+</li>
+
+<!-- Total Users -->
+<li class="nav-item">
+    <a class="nav-link " href="./users.html"> <i class="nav-icon fa fa-users"></i>
+        <p>Users</p>
+    </a>
+</li>
+
+<!-- Total Payments -->
+<li class="nav-item">
+    <a class="nav-link " href="./statistics.html"> <i class="nav-icon fas fa-chart-line"></i>
+        <p>All Statistics</p>
+    </a>
+</li>
+
+<!-- Content Moderation -->
+<li class="nav-item">
+    <a class="nav-link " href="./contentmod.html"> <i class="nav-icon far fa-edit"></i>
+        <p>Content Moderation</p>
+    </a>
+</li>
 
 
-
-    <!-- Total Vendors -->
-    <li class="nav-item">
-        <a class="nav-link " href="./restaurants.html"> <i
-                class="nav-icon fa fa-cutlery"></i>
-            <p>Total Vendors</p>
-        </a>
-    </li>
-
-    <!-- Total Users -->
-    <li class="nav-item">
-        <a class="nav-link " href="./users.html"> <i class="nav-icon fa fa-users"></i>
-            <p>Users</p>
-        </a>
-    </li>
-
-    <!-- Total Payments -->
-    <li class="nav-item">
-        <a class="nav-link " href="./statistics.html"> <i class="nav-icon fas fa-chart-line"></i>
-            <p>All Statistics</p>
-        </a>
-    </li>
-
-    <!-- Content Moderation -->
-    <li class="nav-item">
-        <a class="nav-link " href="./contentmod.html"> <i class="nav-icon far fa-edit"></i>
-            <p>Content Moderation</p>
-        </a>
-    </li>
-
-           </ul>
+            </ul>
         </nav>
         <!-- /.sidebar-menu -->
+
     </div>
     <!-- /.sidebar -->
 </aside>
@@ -158,14 +165,14 @@
 <div class="container-fluid">
 <div class="row mb-2">
   <div class="col-sm-6">
-    <h1 class="m-0 text-dark">Orders<small class="ml-3 mr-3">|</small><small>Orders Management</small></h1>
+    <h1 class="m-0 text-dark">Content Moderation<small class="ml-3 mr-3">|</small><small>Onboarding Images</small></h1>
   </div><!-- /.col -->
   <div class="col-sm-6">
     <ol class="breadcrumb float-sm-right">
       <li class="breadcrumb-item"><a href="https://multi-restaurants.smartersvision.com/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-      <li class="breadcrumb-item"><a href="https://multi-restaurants.smartersvision.com/orders">Orders</a>
+      <li class="breadcrumb-item"><a href="./contentmod.html">Content Moderation</a>
       </li>
-      <li class="breadcrumb-item active">Orders List</li>
+      <li class="breadcrumb-item active">Onboarding Images</li>
     </ol>
   </div><!-- /.col -->
 </div><!-- /.row -->
@@ -173,6 +180,14 @@
 </div>
 <!-- /.content-header -->
 
+<div class="content">    
+    <div class="text-center" id="list_div">
+        <div class="list-item">
+            <input type="text" id="testIp" value="test">
+            <button type="button" class="btn btn-danger btn-lg" onclick="update()">Update</button>
+        </div>
+    </div>
+</div>
 
     </div>
 
@@ -186,15 +201,14 @@
 
 </div>
 
-
     <!-- jQuery -->
     <script src="../js/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
-    
+
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    
-    
-    
+
+
+
     <!-- Bootstrap 4 -->
     <script src="../js/bootstrap.bundle.min.js"></script>
 
@@ -203,89 +217,29 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js"></script>
 
-
-
-    <script type="text/javascript">
-        const messaging = firebase.messaging();
-        navigator.serviceWorker.register("https://multi-restaurants.smartersvision.com/firebase/sw-js")
-            .then((registration) => {
-                messaging.useServiceWorker(registration);
-                messaging.requestPermission()
-                    .then(function() {
-                        console.log('Notification permission granted.');
-                        getRegToken();
-
-                    })
-                    .catch(function(err) {
-                        console.log('Unable to get permission to notify.', err);
-                    });
-                messaging.onMessage(function(payload) {
-                    console.log("Message received. ", payload);
-                    notificationTitle = payload.data.title;
-                    notificationOptions = {
-                        body: payload.data.body,
-                        icon: payload.data.icon,
-                        image:  payload.data.image
-                    };
-                    var notification = new Notification(notificationTitle,notificationOptions);
-                });
-            });
-
-        function getRegToken(argument) {
-            messaging.getToken().then(function(currentToken) {
-                if (currentToken) {
-                    saveToken(currentToken);
-                    console.log(currentToken);
-                } else {
-                    console.log('No Instance ID token available. Request permission to generate one.');
-                }
-            })
-                .catch(function(err) {
-                    console.log('An error occurred while retrieving token. ', err);
-                });
-        }
-
-
-        function saveToken(currentToken) {
-            $.ajax({
-                type: "POST",
-                data: {'device_token': currentToken, 'api_token': 'PivvPlsQWxPl1bB5KrbKNBuraJit0PrUZekQUgtLyTRuyBq921atFtoR1HuA'},
-                url: 'https://multi-restaurants.smartersvision.com/api/users/1',
-                success: function (data) {
-
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-    </script>
-
-    <!-- Sparkline -->
     
-    
-    
-    
-    
+
+
+
     <!-- jQuery Knob Chart -->
-    
+
     <!-- daterangepicker -->
-    
-    
+
+
     <!-- datepicker -->
-    
+
     <!-- Bootstrap WYSIHTML5 -->
-    
+
     <!-- Slimscroll -->
     <script src="../js/jquery.min.js"></script>
     <script src="../js/sweetalert.min.js"></script>
     <!-- FastClick -->
-    
+
         <script src="../js/Chart.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../js/adminlte.js"></script>
-    
-    
+
+
     <!-- AdminLTE for demo purposes -->
     <script src="../js/demo.js"></script>
 
@@ -382,5 +336,33 @@
 
     </script>
 
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-storage.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBJ4G9SN6mBvRj72mcgbw0lR3oaOpP15c4",
+    authDomain: "foodie-e7672.firebaseapp.com",
+    databaseURL: "https://foodie-e7672.firebaseio.com",
+    projectId: "foodie-e7672",
+    storageBucket: "foodie-e7672.appspot.com",
+    messagingSenderId: "197127339220",
+    appId: "1:197127339220:web:b9738d87654c0310cacf41",
+    measurementId: "G-MYXDWXH9KL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>

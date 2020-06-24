@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Food Delivery | Manage Mobile Application</title>
+    <title>Foodifi.in | Manage Mobile Application</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="icon" type="image/png" href="../img/logo.png"/>
     <!-- Tell the browser to be responsive to screen width -->
@@ -16,15 +16,6 @@
 
     <script src="https://kit.fontawesome.com/b2208ecd95.js" crossorigin="anonymous"></script>
 
-
-
-<!-- Morris chart -->
-
-<!-- jvectormap -->
-
-<!-- Date Picker -->
-
-<!-- Daterange picker -->
 
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
 
@@ -92,8 +83,8 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="./dashboard.html" class="brand-link bg-white">
-        <img src="../img/ic_launcher.png" alt="Food Delivery" class="brand-image">
-        <span class="brand-text font-weight-light">Food Delivery</span>
+        <img src="../img/ic_launcher.png" alt="Foodifi.in" class="brand-image">
+        <span class="brand-text font-weight-light">Foodifi.in</span>
     </a>
 
     <!-- Sidebar -->
@@ -181,34 +172,8 @@
 <!-- /.content-header -->
 
 <div class="content">
-    <div class="row">
-        <div class="col-md-4 col-sm-12">
-            <div class="onboardimageholder">
-                <img src="../img/onboardTemp.PNG" alt="Image 1" class="onboardimage">
-            </div>
-            <div class="text-center">
-                <h5><b>Connect people around the world</b></h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="onboardimageholder">
-                <img src="../img/onboardTemp.PNG" alt="Image 2" class="onboardimage">
-            </div>
-            <div class="text-center">
-                <h5><b>Connect people around the world</b></h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-12">
-            <div class="onboardimageholder">
-                <img src="../img/onboardTemp.PNG" alt="Image 3" class="onboardimage">
-            </div>
-            <div class="text-center">
-                <h5><b>Connect people around the world</b></h5>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-            </div>
-        </div>
+    <div class="row" id="addOnboardingImage">
+
     </div>
     <div class="text-center topmargin">
         <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#sliderModal">Replace</button>
@@ -226,9 +191,9 @@
                     <div class="form-group">
                         <label for="selectScreen">Which Screen?</label>
                         <select name="selectScreen" id="screenNumber" class="form-control">
-                            <option value="screen1">Screen 1</option>
-                            <option value="screen2">Screen 2</option>
-                            <option value="screen3">Screen 3</option>
+                            <option value="Screen1">Screen 1</option>
+                            <option value="Screen2">Screen 2</option>
+                            <option value="Screen3">Screen 3</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -255,12 +220,6 @@
       
         </div>
     </div>
-    
-    <div class="text-center" id="list_div">
-        <div class="list-item">
-
-        </div>
-    </div>
 </div>
 
     </div>
@@ -270,19 +229,20 @@
         <div class="float-right d-none d-sm-block">
             <b>Version</b> 2.1.0
         </div>
-        <strong>Copyright © 2020 <a href="https://multi-restaurants.smartersvision.com">Food Delivery</a>.</strong> All rights reserved.
+        <strong>Copyright © 2020 <a href="https://multi-restaurants.smartersvision.com">Foodifi.in</a>.</strong> All rights reserved.
     </footer>
 
 </div>
 
+ 
+
     <!-- jQuery -->
     <script src="../js/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
-
+    
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-
-
-
+    
+    
     <!-- Bootstrap 4 -->
     <script src="../js/bootstrap.bundle.min.js"></script>
 
@@ -294,20 +254,11 @@
     
 
 
+<!-- Slimscroll -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/sweetalert.min.js"></script>
+<!-- FastClick -->
 
-    <!-- jQuery Knob Chart -->
-
-    <!-- daterangepicker -->
-
-
-    <!-- datepicker -->
-
-    <!-- Bootstrap WYSIHTML5 -->
-
-    <!-- Slimscroll -->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/sweetalert.min.js"></script>
-    <!-- FastClick -->
 
         <script src="../js/Chart.min.js"></script>
     <!-- AdminLTE App -->
@@ -318,98 +269,7 @@
     <script src="../js/demo.js"></script>
 
     <script src="../js/scripts.js"></script>
-        <script type="text/javascript">
-        var data = [1000, 2000, 3000, 2500, 2700, 2500, 3000];
-        var labels = ['JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
-
-        function renderChart(chartNode, data, labels) {
-            var ticksStyle = {
-                fontColor: '#495057',
-                fontStyle: 'bold'
-            };
-
-            var mode = 'index';
-            var intersect = true;
-            return new Chart(chartNode, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [
-                        {
-                            backgroundColor: '#007bff',
-                            borderColor: '#007bff',
-                            data: data
-                        }
-                    ]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    tooltips: {
-                        mode: mode,
-                        intersect: intersect
-                    },
-                    hover: {
-                        mode: mode,
-                        intersect: intersect
-                    },
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        yAxes: [{
-                            // display: false,
-                            gridLines: {
-                                display: true,
-                                lineWidth: '4px',
-                                color: 'rgba(0, 0, 0, .2)',
-                                zeroLineColor: 'transparent'
-                            },
-                            ticks: $.extend({
-                                beginAtZero: true,
-
-                                // Include a dollar sign in the ticks
-                                callback: function (value, index, values) {
-                                    if (value >= 1000) {
-                                        value /= 1000
-                                        value += 'k'
-                                    }
-                                    return '$' + value
-                                }
-                            }, ticksStyle)
-                        }],
-                        xAxes: [{
-                            display: true,
-                            gridLines: {
-                                display: false
-                            },
-                            ticks: ticksStyle
-                        }]
-                    }
-                }
-            })
-        }
-
-        $(function () {
-            'use strict'
-
-            var $salesChart = $('#sales-chart')
-            $.ajax({
-                url: "https://multi-restaurants.smartersvision.com/api/payments/byMonth?api_token=PivvPlsQWxPl1bB5KrbKNBuraJit0PrUZekQUgtLyTRuyBq921atFtoR1HuA",
-                success: function (result) {
-                    $("#loadingMessage").html("");
-                    var data = result.data[0];
-                    var labels = result.data[1];
-                    renderChart($salesChart, data, labels)
-                },
-                error: function (err) {
-                    $("#loadingMessage").html("Error");
-                }
-            });
-            //var salesChart = renderChart($salesChart, data, labels);
-        })
-
-    </script>
-
+      
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
@@ -437,6 +297,6 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
-<script type="text/javascript" src="../js/index.js"></script>
+<script type="text/javascript" src="../js/images.js"></script>
 </body>
 </html>

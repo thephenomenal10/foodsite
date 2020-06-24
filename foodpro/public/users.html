@@ -3,17 +3,116 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
-    <title>Food Delivery | Manage Mobile Application</title>
+    <title>Foodifi.in | Manage Mobile Application</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link rel="icon" type="image/png" href="../img/logo.png"/>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </head>
     <!-- Ionicons -->
 
+    <style>
+/*table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+td,th{
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color:grey}
+
+th {
+  background-color: red;
+  color: white;
+  
+}*/
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.topnav .button {
+  float: center;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#users{
+    display: block;
+}
+#susers{
+    display: none;
+}
+#back{
+    display: none;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+
+    </style>
     <script src="https://kit.fontawesome.com/b2208ecd95.js" crossorigin="anonymous"></script>
 
 
@@ -28,6 +127,7 @@
 
 
 <link rel="stylesheet" href="../css/dataTables.bootstrap4.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 <!-- Theme style -->
@@ -56,7 +156,6 @@
                     <!-- TO DO... -->
                 </li>
             </ul>
-
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                                                     <li class="nav-item">
@@ -92,8 +191,8 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="./dashboard.html" class="brand-link bg-white">
-        <img src="../img/ic_launcher.png" alt="Food Delivery" class="brand-image">
-        <span class="brand-text font-weight-light">Food Delivery</span>
+        <img src="../img/ic_launcher.png" alt="Foodifi.in" class="brand-image">
+        <span class="brand-text font-weight-light">Foodifi.in</span>
     </a>
 
     <!-- Sidebar -->
@@ -131,7 +230,7 @@
 <li class="nav-item">
     <a class="nav-link " href="./restaurants.html"> <i
             class="nav-icon fa fa-cutlery"></i>
-        <p>Total Vendors</p>
+        <p>Vendors</p>
     </a>
 </li>
 
@@ -155,234 +254,6 @@
         <p>Content Moderation</p>
     </a>
 </li>
-<!--
-    <li class="nav-item">
-        <a class="nav-link " href="./cuisines.html">                <i class="nav-icon fa fa-globe"></i><p>Cuisines</p></a>
-    </li>
-
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link ">                 <i class="nav-icon fa fa-cutlery"></i>            <p>Restaurants <i class="right fa fa-angle-left"></i>
-            </p>
-        </a>
-        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                    <a class="nav-link " href="./restaurants.html">                            <i class="nav-icon fa fa-cutlery"></i><p>Restaurants</p></a>
-                </li>
-                                        <li class="nav-item">
-                    <a class="nav-link " href="./galleries.html">                            <i class="nav-icon fa fa-image"></i><p>Galleries</p></a>
-                </li>
-                                        <li class="nav-item">
-                    <a class="nav-link " href="./restaurantReviews.html">                            <i class="nav-icon fa fa-comments"></i><p>Restaurant Reviews</p></a>
-                </li>
-                    </ul>
-    </li>
-
-    <li class="nav-item">
-        <a class="nav-link " href="./categories.html">                <i class="nav-icon fa fa-folder"></i><p>Categories</p></a>
-    </li>
-
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link ">                 <i class="nav-icon fa fa-fire"></i>            <p>Foods <i class="right fa fa-angle-left"></i>
-            </p>
-        </a>
-        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                    <a class="nav-link " href="./foods.html">                            <i class="nav-icon fa fa-fire"></i>                        <p>Foods</p></a>
-                </li>
-                                        <li class="nav-item">
-                    <a class="nav-link " href="./extraGroups.html">                            <i class="nav-icon fa fa-plus-square"></i><p>Extra Groups</p></a>
-                </li>
-                                        <li class="nav-item">
-                    <a class="nav-link " href="./extras.html">                            <i class="nav-icon fa fa-plus-circle"></i><p>Extras</p></a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./foodReviews.html">                            <i class="nav-icon fa fa-comments"></i><p>Food Reviews</p></a>
-                </li>
-
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./nutrition.html">                            <i class="nav-icon fa fa-tasks"></i><p>Nutrition</p></a>
-                </li>
-
-        </ul>
-    </li>
-
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link ">                 <i class="nav-icon fa fa-shopping-basket"></i>            <p>Orders <i class="right fa fa-angle-left"></i>
-            </p>
-        </a>
-        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./orders.html">                            <i class="nav-icon fa fa-shopping-basket"></i><p>Orders</p></a>
-                </li>
-                                        <li class="nav-item">
-                    <a class="nav-link " href="./orderStatuses.html">                            <i class="nav-icon fa fa-server"></i><p>Order Statuses</p></a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./deliveryAddresses.html">                            <i class="nav-icon fa fa-map"></i><p>Delivery Addresses</p></a>
-                </li>
-
-        </ul>
-    </li>
-
-
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link ">                 <i class="nav-icon fa fa-support"></i>            <p>Faqs <i class="right fa fa-angle-left"></i>
-            </p>
-        </a>
-        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                    <a class="nav-link " href="./faqCategories.html">                            <i class="nav-icon fa fa-folder"></i><p>Faq Categories</p></a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./faqs.html">                            <i class="nav-icon fa fa-question-circle"></i>                        <p>Faqs</p></a>
-                </li>
-                    </ul>
-    </li>
-
-<li class="nav-header">Settings</li>
-    <li class="nav-item">
-        <a class="nav-link " href="./medias.html"><i class="nav-icon fa fa-picture-o"></i>            <p>Medias Library</p></a>
-    </li>
-
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link ">                 <i class="nav-icon fa fa-credit-card"></i>            <p>Payments<i class="right fa fa-angle-left"></i>
-            </p>
-        </a>
-        <ul class="nav nav-treeview">
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./payments.html">                            <i class="nav-icon fa fa-money"></i><p>Payments</p></a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./drivers.html">                            <i class="nav-icon fa fa-car"></i><p>Drivers <span class="right badge badge-danger">New</span></p></a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./earnings.html">                            <i class="nav-icon fa fa-money"></i><p>Earnings <span class="right badge badge-danger">New</span></p>
-                    </a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./driversPayouts.html">                            <i class="nav-icon fa fa-dollar"></i><p>Drivers Payouts</p></a>
-                </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./restaurantsPayouts.html">                            <i class="nav-icon fa fa-dollar"></i><p>Restaurants Payouts</p></a>
-                </li>
-
-        </ul>
-    </li>
-
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link ">
-            <i class="nav-icon fa fa-mobile"></i>            <p>
-                Mobile App Settings
-                <i class="right fa fa-angle-left"></i>
-            </p></a>
-        <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="./globals.html" class="nav-link ">
-                    <i class="nav-icon fa fa-cog"></i>  <p>Global Settings
-                        <span class="right badge badge-danger">New</span></p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./colors.html" class="nav-link ">
-                    <i class="nav-icon fa fa-pencil"></i>  <p>Theme <span class="right badge badge-danger">New</span>
-                    </p>
-                </a>
-            </li>
-        </ul>
-
-    </li>
-    <li class="nav-item has-treeview ">
-        <a href="#" class="nav-link "> <i class="nav-icon fa fa-cogs"></i>            <p>Settings <i class="right fa fa-angle-left"></i>
-            </p>
-        </a>
-        <ul class="nav nav-treeview">
-            <li class="nav-item">
-                <a href="./globals.html" class="nav-link ">
-                    <i class="nav-icon fa fa-cog"></i>  <p>Global Settings</p>
-                </a>
-            </li>
-
-                            <li class="nav-item">
-                    <a class="nav-link " href="./users.html">                            <i class="nav-icon fa fa-users"></i>                        <p>Users</p></a>
-                </li>
-                                        <li class="nav-item has-treeview ">
-                    <a href="#" class="nav-link ">
-                        <i class="nav-icon fa fa-user-secret"></i>                        <p>
-                            Roles &amp; Permissions
-                            <i class="right fa fa-angle-left"></i>
-                        </p></a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a class="nav-link " href="./permissions.html">
-                                <i class="nav-icon fa fa-circle-o"></i>                                <p>Permissions List</p>
-                            </a>
-                        </li>
-                                                                            <li class="nav-item">
-                                <a class="nav-link " href="./roles.html">
-                                    <i class="nav-icon fa fa-circle-o"></i>                                    <p>Roles List</p>
-                                </a>
-                            </li>
-                                                                    </ul>
-
-                </li>
-
-            <li class="nav-item">
-                <a class="nav-link " href="./customFields.html">                        <i class="nav-icon fa fa-list"></i><p>Custom Fields</p></a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./localisation.html" class="nav-link ">
-                    <i class="nav-icon fa fa-language"></i>  <p>Localisation</p></a>
-            </li>
-            <li class="nav-item">
-                <a href="./en.html" class="nav-link ">
-                     <i class="nav-icon fa fa-language"></i>  <p>Translation</p></a>
-            </li>
-                            <li class="nav-item">
-                    <a class="nav-link " href="./currencies.html">                            <i class="nav-icon fa fa-dollar"></i><p>Currencies</p></a>
-                </li>
-
-            <li class="nav-item">
-                <a href="./payment.html" class="nav-link ">
-                    <i class="nav-icon fa fa-credit-card"></i>  <p>Payment</p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./social.html" class="nav-link ">
-                    <i class="nav-icon fa fa-globe"></i>  <p>Social Authentication</p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./notifications.html" class="nav-link ">
-                    <i class="nav-icon fa fa-bell"></i>  <p>Push Notifications</p>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a href="./smtp.html" class="nav-link ">
-                    <i class="nav-icon fa fa-envelope"></i>  <p>Mail</p>
-                </a>
-            </li>
-
-        </ul>
-    </li>
-
-
--->
-
 
             </ul>
         </nav>
@@ -396,36 +267,98 @@
 <!--  ....................................From here.   main area start................ -->
 
 
-    <!-- Content Wrapper. Contains page content -->
+
+    <!-- Content Wrapper. Contains page content--> 
+    <div class="topnav">
+        <div class="search-container">
+            <button type="button" onclick="getu()" id="back">Back</button>
+            <input type="text" placeholder="Search.." name="search" id="uname">
+              <button type="button" onclick="getuser()"><i class="fa fa-search"></i></button>
+            
+          </div>
+   </div> 
+
     <div class="content-wrapper">
+        <!--<div class="container-fluid ">
+        <h1><center>Users</center></h1>
+    
+            
+        <table >
+            <thead>
+                      <tr >
+                        <th class="text-center">Name</th>
+                        <th >Email</th>
+                        <th >Address</th>
+                        <th >Contact</th>
+                      </tr>
+                    </thead>
+                      <tbody id="users">
 
-        <!-- Content Header (Page header) -->
-        <div class="content-header content-header0">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Settings <small>Settings Management</small></h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="https://multi-restaurants.smartersvision.com"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                            <li class="breadcrumb-item active">Users List</li>
-                        </ol>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+                      </tbody>
+                      <tbody id="susers">
 
-        
-                </div>
+                    </tbody>
+                 </table>   
+       
+                </div>-->
 
-                <!-- Main Footer -->
+
+                
+                <div class="card">
+                    <div class="card-header no-border">
+                        <h2 class="card-title"><center>Users</center></h2>
+                    </div>
+                    <div class="card-body p-0">
+                    
+                        <table class="table table-striped table-valign-middle">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th >Email</th>
+                                    <th >Address</th>
+                                    <th >Contact</th>
+                                    <th >Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="users">
+
+                            </tbody>
+                            <tbody id="susers">
+      
+                          </tbody>
+                       </table> 
+
+                       <div id="sliderModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                      
+                          <div class="modal-content">
+                            <div class="modal-body">
+                                <form action="" enctype="multipart/form-data">
+                                    <div class="text-left">
+                                        <button type="button" class="btn btn-success btn-md" onclick="Suspend()">Suspend</button>
+                                        </div>
+                                        <div class="text-right">
+                                        <button type="button" class="btn btn-success btn-md" onclick="Activate()">Activate</button>
+                                        </div>
+                                </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                      
+                        </div>
+                      </div>
+
+</div>
+
+<!-- Main Footer -->
                 <footer class="main-footer 0">
                     <div class="float-right d-none d-sm-block">
                         <b>Version</b> 2.1.1
                     </div>
-                    <strong>Copyright © 2020 <a href="./dashboard.html">Food Delivery</a>.</strong> All rights reserved.
+                    <strong>Copyright © 2020 <a href="./dashboard.html">Foodifi.in</a>.</strong> All rights reserved.
                 </footer>
 
             </div>
@@ -448,77 +381,6 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-messaging.js"></script>
 
-
-          <script type="text/javascript">
-              const messaging = firebase.messaging();
-              navigator.serviceWorker.register("https://multi-restaurants.smartersvision.com/firebase/sw-js")
-                  .then((registration) => {
-                      messaging.useServiceWorker(registration);
-                      messaging.requestPermission()
-                          .then(function() {
-                              console.log('Notification permission granted.');
-                              getRegToken();
-
-                          })
-                          .catch(function(err) {
-                              console.log('Unable to get permission to notify.', err);
-                          });
-                      messaging.onMessage(function(payload) {
-                          console.log("Message received. ", payload);
-                          notificationTitle = payload.data.title;
-                          notificationOptions = {
-                              body: payload.data.body,
-                              icon: payload.data.icon,
-                              image:  payload.data.image
-                          };
-                          var notification = new Notification(notificationTitle,notificationOptions);
-                      });
-                  });
-
-              function getRegToken(argument) {
-                  messaging.getToken().then(function(currentToken) {
-                      if (currentToken) {
-                          saveToken(currentToken);
-                          console.log(currentToken);
-                      } else {
-                          console.log('No Instance ID token available. Request permission to generate one.');
-                      }
-                  })
-                      .catch(function(err) {
-                          console.log('An error occurred while retrieving token. ', err);
-                      });
-              }
-
-
-              function saveToken(currentToken) {
-                  $.ajax({
-                      type: "POST",
-                      data: {'device_token': currentToken, 'api_token': 'PivvPlsQWxPl1bB5KrbKNBuraJit0PrUZekQUgtLyTRuyBq921atFtoR1HuA'},
-                      url: 'https://multi-restaurants.smartersvision.com/api/users/1',
-                      success: function (data) {
-
-                      },
-                      error: function (err) {
-                          console.log(err);
-                      }
-                  });
-              }
-          </script>
-
-          <!-- Sparkline -->
-
-
-
-
-
-          <!-- jQuery Knob Chart -->
-
-          <!-- daterangepicker -->
-
-
-          <!-- datepicker -->
-
-          <!-- Bootstrap WYSIHTML5 -->
 
           <!-- Slimscroll -->
           <script src="../css/jquery.slimscroll.min.js"></script>
@@ -740,32 +602,34 @@
                * initialize collections filter
                * by default it select default collection
                **/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          // initFilterSelect2();
+// initFilterSelect2();
       </script>
+
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-auth.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.15.3/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBJ4G9SN6mBvRj72mcgbw0lR3oaOpP15c4",
+    authDomain: "foodie-e7672.firebaseapp.com",
+    databaseURL: "https://foodie-e7672.firebaseio.com",
+    projectId: "foodie-e7672",
+    storageBucket: "foodie-e7672.appspot.com",
+    messagingSenderId: "197127339220",
+    appId: "1:197127339220:web:b9738d87654c0310cacf41",
+    measurementId: "G-MYXDWXH9KL"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script src="../js/user.js"></script>
       
 </body>
 </html>
