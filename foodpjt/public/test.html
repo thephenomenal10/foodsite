@@ -180,53 +180,11 @@
 </div>
 <!-- /.content-header -->
 
-<div class="content">
-    <div class="row" id="addOnboardingImage">
-
-    </div>
-    <div class="text-center topmargin">
-        <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#sliderModal">Replace</button>
-    </div>
-    <div id="sliderModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-      
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Replace Onboarding Images</h4>
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <form enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="selectScreen">Which Screen?</label>
-                        <select name="selectScreen" id="screenNumber" class="form-control">
-                            <option value="Screen1">Screen 1</option>
-                            <option value="Screen2">Screen 2</option>
-                            <option value="Screen3">Screen 3</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="heading">Heading</label>
-                        <input type="text" name="heading" id="heading" class="form-control" placeholder="Enter Heading..">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input type="text" name="description" id="description" class="form-control" placeholder="Enter Description..">
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Select Replacement Image</label>
-                        <input type="file" name="image" id="onboardingImage" accept="image/png,image/svg" class="form-control">
-                    </div>
-                    <div class="text-left">
-                        <button type="button" class="btn btn-success btn-md" onclick="onboardingUpdate()">Update</button>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-      
+<div class="content">    
+    <div class="text-center" id="list_div">
+        <div class="list-item">
+            <input type="text" id="testIp" value="test">
+            <button type="button" class="btn btn-danger btn-lg" onclick="update()">Update</button>
         </div>
     </div>
 </div>

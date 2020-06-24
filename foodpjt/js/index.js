@@ -1,9 +1,8 @@
 const db = firebase.firestore();
 
-function sliderUpdate() {
-    
-    var imageNumber = document.getElementById("imageNumber").value;
 
+function sliderUpdate() {  
+    var imageNumber = document.getElementById("imageNumber").value;
     var image = document.getElementById("image").files[0];
     var imageName = image.name;
     
@@ -22,23 +21,29 @@ function sliderUpdate() {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL){
             var url = downloadURL;
 
-            db.collection("sample").doc().set({
-                imageNumber: imageNumber,
-                image: url
+            db.collection("home_slider_images").doc(imageNumber).
+            update({
+                image: url,
             })
             .then(function(){
-                window.alert("Upload successful");
+                window.alert("Update successful");
             })
             .catch(err => window.alert("Error: " + err.message));
         });
     });
+    setTimeout(() => {location.reload();}, 3000);
 }
 
 
 function onboardingUpdate() {
     var screenNumber = document.getElementById("screenNumber").value;
+    var smallerScreen = screenNumber.toLowerCase();
     var description = document.getElementById("description").value;
     var heading = document.getElementById("heading").value;
+
+    var existingDescription = "";
+    var existingHeading = "";
+    
     var onboardingImage = document.getElementById("onboardingImage").files[0];
     var onboardingImageName = onboardingImage.name;
 
@@ -57,49 +62,124 @@ function onboardingUpdate() {
         uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL){
             var url = downloadURL;
 
-            db.collection("sample").doc().set({
-                screenNumber: screenNumber,
-                description: description,
-                heading: heading,
-                onboardingImage: url
-            })
-            .then(function(){
-                window.alert("Upload successful");
-            })
-            .catch(err => window.alert("Error: " + err.message));
+            db.collection("onboarding_images").get().then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc){
+                    if(doc.data().screenNumber === smallerScreen ){
+                        existingHeading = doc.data().heading;
+                        existingDescription = doc.data().description;
+                        var newHeading = "";
+                        var newDescription = "";
+
+                        if(heading == ""){
+                            newHeading = existingHeading;
+                        } else {
+                            newHeading = heading;
+                        }
+                    
+                        console.log(newHeading);
+                    
+                        if(description == ""){
+                            newDescription = existingDescription;
+                        } else {
+                            newDescription = description;
+                        }
+                    
+                        db.collection("onboarding_images").doc(screenNumber).update({
+                            heading: newHeading,
+                            description: newDescription,
+                            onboardingImage: url
+                        })
+                        .then(function(){
+                            window.alert("Update successful");
+                        })
+                        .catch(err => window.alert("Error: " + err.message));
+                    }
+                });
+            }); 
+            
         });
     });
+    setTimeout(() => {location.reload();}, 3000);
 }
 
-//var db = firebase.firestore();
-var earning = document.getElementById("earning");
-var earnings = document.getElementById("earnings");
+// ==========================================
 
-db.collection("earning").get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        console.log(doc.data().total_earning + "\n");
-        earning.innerHTML += "<h3>" + doc.data().total_earning + "</h3>";
-    });
-});
+// FETCHING IMAGES
 
 
-db.collection("tiffen_service_details/angshumas07@gmail.com/acceptedOrders/angshumans07@gmail.comwSbDvsN92020-06-21 22:14:07.088690").get().then(function(querySnapshot) {
- 
-      querySnapshot.forEach(function(doc) {
-          console.log(doc.data().totalCost + "\n");
-          earnings.innerHTML += "<h3>" + doc.data().totalCost + "</h3>";
-      });
-  });
+db.collection("home_slider_images").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc){
+        var colDiv = document.createElement("div");
+        colDiv.classList.add("col-md-3", "col-sm-12");
 
-/*
-var earning = document.getElementById("earning");
+        var sliderImgHolder = document.createElement("div");
+        sliderImgHolder.classList.add("sliderimageholder");
 
-db.collection("earning").get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        console.log(doc.data().total_earning + "\n");
+        var img = document.createElement("img");
+        img.src = doc.data().image;
+        img.classList.add("sliderimage");
+        img.alt = "Image";
+
+        sliderImgHolder.appendChild(img);      
+        colDiv.appendChild(sliderImgHolder);
+        document.getElementById("addImage").appendChild(colDiv);
     });
 });
 
+
+db.collection("onboarding_images").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        var colDiv = document.createElement("div");
+        colDiv.classList.add("col-md-4", "col-sm-12");
+
+        var onboardingImgHolder = document.createElement("div");
+        onboardingImgHolder.classList.add("onboardimageholder");
+
+        var img = document.createElement("img");
+        img.src = doc.data().onboardingImage;
+        img.classList.add("onboardimage");
+        img.alt = "Image";
+        onboardingImgHolder.appendChild(img);
+        colDiv.appendChild(onboardingImgHolder);
+
+        var textDiv = document.createElement("div");
+        textDiv.classList.add("text-center");
+
+        var h5 = document.createElement("h5");
+        h5.innerText = doc.data().heading;
+        h5.style.fontWeight = "bold";
+
+        textDiv.appendChild(h5);
+
+        var para = document.createElement("p");
+        para.innerText = doc.data().description;
+
+        textDiv.appendChild(para);
+        colDiv.appendChild(textDiv);
+
+        document.getElementById("addOnboardingImage").appendChild(colDiv);
+    });
+});
+
+
+
+// where(firebase.firestore.FieldPath.documentId(), '==', 'saibhavadeesh@gmail.com')
+
+
+
+// TEST CODE
+
+/*
+var total = 0;
+
+db.collection("tiffen_service_details/saibhavadeesh@gmail.com/acceptedOrders").get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc){
+        total += doc.data().totalCost;
+    });
+    earnings.innerHTML = "<h3>" + total + "</h3>";
+});
+
+*/
 
 /* Auth code 
 
